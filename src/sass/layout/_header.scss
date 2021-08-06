@@ -1,0 +1,15 @@
+.header {
+	// LOGO
+	&__logo {
+		width: 100%;
+		height: auto;
+		padding: 3rem;
+		border-bottom: 1.25px solid var(--color-primary-dark);
+	}
+
+	//Side navigation
+
+	.sidebar {
+		margin: 2rem 0;
+	}
+}

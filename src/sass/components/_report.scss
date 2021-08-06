@@ -1,0 +1,99 @@
+.report {
+	background-color: #fff;
+	margin: 3rem;
+	padding: 2.5rem;
+	border-radius: 1.5rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.date-time {
+	display: flex;
+	margin-bottom: 2.5rem;
+	&__icon {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	&__content {
+		margin-left: 1.5rem;
+	}
+
+	&__day {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--color-grey-darkest);
+	}
+
+	&__time {
+		font-size: 1.6rem;
+		font-weight: 500;
+		color: var(--color-grey-dark-1);
+	}
+	&__date {
+		font-weight: 1.4rem;
+		font-weight: 500;
+		color: var(--color-grey-dark-1);
+	}
+}
+
+.temperature {
+	text-align: center;
+	font-size: 2.8rem;
+	color: var(--color-grey-darkest);
+	font-weight: 500;
+}
+
+.location {
+	margin-bottom: 1.5rem;
+	color: var(--color-grey-darkest);
+	text-align: center;
+	&__city {
+		font-size: 2rem;
+		font-weight: 500;
+	}
+
+	&__country {
+		font-size: 1.2rem;
+	}
+}
+
+.stats {
+	& > *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	&__item {
+		font-size: 1.6rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		&--wind {
+			align-items: center;
+		}
+	}
+
+	&__value {
+		color: var(--color-grey-darkest);
+	}
+
+	&__progress-bar {
+		margin-top: 0.3rem;
+		width: 100%;
+		height: 4px;
+		background-color: var(--color-primary-light-1);
+		position: relative;
+		border-radius: 1rem 0 0 1rem;
+	}
+
+	&__bar {
+		height: 100%;
+		width: 0;
+		background-color: var(--color-secondary);
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 1rem;
+	}
+}

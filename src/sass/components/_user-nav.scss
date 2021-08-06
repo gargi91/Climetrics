@@ -1,0 +1,91 @@
+.user-nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 3rem;
+
+	&__search {
+		display: flex;
+		align-items: center;
+	}
+
+	&__query {
+		font: inherit;
+		font-size: 1.6rem;
+		margin-left: 1rem;
+		outline: none;
+		border: none;
+		color: var(--color-grey-dark-1);
+
+		&::placeholder {
+			color: var(--color-primary-light-1);
+		}
+	}
+
+	&__user {
+		display: flex;
+		align-items: center;
+		border-radius: 1.5rem;
+		border: 1px solid var(--color-white);
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		padding: 0.5rem 1.5rem;
+		svg {
+			width: 2.5rem;
+			height: 2.5rem;
+			fill: var(--color-primary-light-1);
+		}
+
+		&--search {
+			background-color: var(--color-white);
+			padding: 0.75rem;
+			border-radius: 1.5rem;
+
+			svg {
+				fill: var(--color-primary);
+			}
+
+			&:hover svg {
+				fill: var(--color-primary-dark);
+			}
+		}
+
+		&--notification {
+			border-right: 1px solid var(--color-white);
+			&:hover svg {
+				fill: var(--color-primary-light-2);
+			}
+		}
+	}
+
+	&__icon:hover {
+		cursor: pointer;
+	}
+
+	// user account and profile
+	&__account {
+		display: flex;
+		align-items: center;
+		padding: 0.5rem 1.5rem;
+	}
+
+	&__profile-pic {
+		width: 3.5rem;
+		height: 3.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+		object-position: top;
+		margin-right: 1rem;
+	}
+
+	&__username {
+		font-size: 1.4rem;
+		font-weight: 600;
+		font-family: var(--font-display);
+		color: var(--color-primary);
+	}
+}

@@ -1,0 +1,33 @@
+// Fonts
+{<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">}
+
+// Colors 
+--color-primary: #6467E5;
+--color-primary-light-1: #BBC3DA;
+--color-primary-light-2: #9CA6CF;
+--color-primary-dark: #5767C0;
+
+--color-secondary: #FFAE47;
+
+//font-Colors
+--color-white: #F0F1F7;
+--color-grey-dark-1: #889197;
+--color-grey-dark-2: #A2A0AF;
+--color-grey-darkest: #292C32;
+
+//API
+
+1) Weather forecast 
+- https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+- website : https://openweathermap.org/api/one-call-api
+2) Cities thumbnail
+- https://unsplash.com/documentation#search-photos
+3) Top Cities
+- https://public.opendatasoft.com/api/records/1.0/search/?dataset=geonames-all-cities-with-a-population-1000&q=india&rows=5&sort=population
+
+//UI
+1)Slider - weather cards
+- https://splidejs.com/options/
+
+2)Wind speedometer
+- http://bernii.github.io/gauge.js/#!
