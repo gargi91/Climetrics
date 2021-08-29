@@ -1,0 +1,62 @@
+.section-cities {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 3rem 0;
+}
+.section-cities .city {
+  width: calc(100% / 5);
+  transition: transform 0.2s;
+}
+.section-cities .city:not(:last-of-type) {
+  margin-right: 2rem;
+}
+.section-cities .city__display {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(87, 103, 192, 0.15);
+  margin-bottom: 1rem;
+  object-fit: contain;
+  height: 10rem;
+}
+.section-cities .city__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-cities .city__weather {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-top-left-radius: 1.5rem;
+}
+.section-cities .city__weather--icon {
+  position: absolute;
+  top: 1.5px;
+  right: 1.5px;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.section-cities .city__weather--time {
+  color: var(--color-grey-darkest);
+  font-weight: 600;
+  margin: 2px;
+}
+.section-cities .city__header {
+  text-align: center;
+}
+.section-cities .city__title {
+  font-size: 1.2rem;
+}
+.section-cities .city:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+.section-cities .city:hover .city__title {
+  color: var(--color-primary-dark);
+}
