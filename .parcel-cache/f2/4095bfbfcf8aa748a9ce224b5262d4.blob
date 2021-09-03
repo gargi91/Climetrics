@@ -1,0 +1,53 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.weatherIcons = exports.dayNames = exports.monthNames = exports.AJAX = void 0;
+
+var _config = require("./config.js");
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error(`Request took too long! Timeout after ${s} second`));
+    }, s * 1000);
+  });
+}; //get json data from api
+
+
+const AJAX = async function (url, method = undefined) {
+  try {
+    const fetchPro = method ? fetch(url, {
+      method: "get"
+    }) : fetch(url);
+    const res = await Promise.race([fetchPro, timeout(_config.TIMEOUT_SEC)]);
+    const data = await res.json();
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+exports.AJAX = AJAX;
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+exports.monthNames = monthNames;
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+exports.dayNames = dayNames;
+const weatherIcons = {
+  "11d": "thunderstorm",
+  "01d": "sun",
+  "01n": "moon",
+  "02d": "cloudy-sun",
+  "02n": "cloudy-moon",
+  "50d": "haze",
+  "10d": "rainy",
+  "09d": "rainy-light",
+  "03d": "cloud",
+  "03n": "cloud",
+  "04n": "cloudy",
+  "04d": "cloudy",
+  "13d": "snowy"
+};
+exports.weatherIcons = weatherIcons;
