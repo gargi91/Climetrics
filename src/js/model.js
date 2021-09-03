@@ -16,7 +16,10 @@ export const state = {
 		lat: 48.8566969,
 		lng: 2.3514616
 	},
-	tz: "Europe/Paris"
+	tz: "Europe/Paris",
+	current: {},
+	daily: {},
+	hourly: {}
 };
 
 const options = {
@@ -47,18 +50,17 @@ export const loadWeatherData = async function () {
 
 		// Get weather data
 		const dataWeather = await AJAX(
-			`${WEATHER_API_URL}lat=${lat}&lon=${lng}&appid=${WEATHER_API_KEY}`
+			`${WEATHER_API_URL}lat=${lat}&lon=${lng}&units=metric&appid=${WEATHER_API_KEY}`
 		);
 		const tz = dataWeather.timezone;
-		console.log(dataWeather);
 		state.tz = tz;
-		// 		// const times = data.daily.map((el) => {
-		// 		// 	return getDateTime(el.dt);
-		// 		// });
 		saveCurrentWeatherData(dataWeather);
 		saveDailyWeatherData(dataWeather.daily);
 		saveHourlyWeatherData(dataWeather.hourly);
-		console.log(state);
+		const locationData = await AJAX(`${GEOCODING_API_URL}q=${lat}+${lng}&key=${GEOCODING_API_KEY}`);
+		console.log(locationData);
+		state.city = locationData.results[0].components.city;
+		state.country = locationData.results[0].components.country;
 	} catch (err) {
 		throw err;
 	}
@@ -68,8 +70,8 @@ const getDateTime = function (dt) {
 	const dateObj = moment.tz(dt * 1000, state.tz);
 	//date time datas
 	const day = dayNames[dateObj.day()].slice(0, 3);
-	const hour = dateObj.hours();
-	const min = dateObj.minutes();
+	const hour = dateObj.hours().toString().padStart(2, 0);
+	const min = dateObj.minutes().toString().padStart(2, 0);
 	const date = dateObj.date();
 	const month = monthNames[dateObj.month()];
 	const timeStr = `${hour}:${min}`;
@@ -110,8 +112,9 @@ const saveDailyWeatherData = function (data) {
 			sunrise: getDateTime(element.sunrise).time,
 			sunset: getDateTime(element.sunset).time,
 			humidity: element.humidity,
-			min: element.temp.min,
-			max: element.temp.max
+			min: Math.trunc(element.temp.min),
+			max: Math.trunc(element.temp.max),
+			icon: weatherIcons[element.weather[element.weather.length - 1].icon]
 		};
 	});
 	state.daily = daily;

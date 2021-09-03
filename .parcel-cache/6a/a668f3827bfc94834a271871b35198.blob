@@ -1,0 +1,137 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _view = _interopRequireDefault(require("./view.js"));
+
+var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// Parcel 2
+class ReportView extends _view.default {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "_parentElement", document.querySelector(".weather-forecast"));
+
+    _defineProperty(this, "_errorMessage", "We could not get the current weather report!");
+
+    _defineProperty(this, "_message", "");
+  }
+
+  _generateMarkup() {
+    const data = this._data.current;
+    const city = this._data.city;
+    const country = this._data.country;
+    return `
+      <div class="weather-forecast__header">
+        <h2 class="heading--2 city-main">New York</h2>
+        <button class="btn btn--detail">Details more
+          &rarr;</button>
+      </div>
+
+      <div class="glider weather-forecast__track">
+        <button class="btn btn--dark btn--left hidden">
+          <svg class="forecast__icon">
+            <use
+              href="src/img/icons.svg#icon-angle-double-left">
+          </svg>
+        </button>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">11 Mon</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">12 Tue</div>
+        </div>
+        <div class="glider__item forecast forecast--today">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">13 Wed</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">14 Thu</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">15 Fri</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">16 Sat</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">17 Sun</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">16 Sat</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">17 Sun</div>
+        </div>
+        <div class="glider__item forecast blur-bg">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">18 Sun</div>
+        </div>
+        <div class="glider__item forecast">
+          <svg class="forecast__icon">
+            <use href="src/img/icons.svg#icon-rainy">
+          </svg>
+          <h6 class="forecast__temperature">-5/+4</h6>
+          <div class="forecast__day">18 Sun</div>
+        </div>
+        <button class="btn btn--dark btn--right ">
+          <svg class="forecast__icon">
+            <use
+              href="src/img/icons.svg#icon-angle-double-right">
+          </svg>
+        </button>
+      </div>
+      `;
+  }
+
+}
+
+var _default = new ReportView();
+
+exports.default = _default;

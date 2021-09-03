@@ -54,6 +54,7 @@ class ReportView extends View {
                 <h6 class="stats__value">${data.windSpeed}Km/h</h6>
             </div>
         </div>
+        <button class="btn" id="btn-get-location">Get my location &rarr;</button>
         `;
 	}
 
@@ -64,10 +65,9 @@ class ReportView extends View {
 		const progressBars = document.querySelectorAll(".stats__bar");
 		progressBars[0].style.width = `${humidity}%`;
 		progressBars[1].style.width = `${precipation}%`;
-		console.log(windSpeed);
 		// Create a new Gauge
 		var cpuGauge = Gauge(document.getElementById("cpuSpeed"), {
-			max: 50,
+			max: 10,
 			showValue: false,
 			value: 0,
 			// Custom dial colors (Optional)
@@ -77,7 +77,7 @@ class ReportView extends View {
 		});
 
 		// Set value and animate (value, animation duration in seconds)
-		cpuGauge.setValueAnimated(windSpeed, 5);
+		cpuGauge.setValueAnimated(windSpeed, 2);
 	}
 }
 
