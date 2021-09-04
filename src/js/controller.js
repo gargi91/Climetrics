@@ -18,12 +18,20 @@ const start = async function () {
 		ReportView.render(model.state);
 		ReportView.updateUI(model.state.current);
 		WeatherForecastView.render(model.state);
+		ChartView.createChartData(model.state);
+		ChartView.chartRender();
 	} catch (err) {
 		console.error(err);
 	}
 };
 
+const controlChartData = function () {
+	ChartView.createChartData(model.state);
+	ChartView.updateChart();
+};
+
 const init = function () {
 	start();
+	ChartView.addHandlerClickOpt(controlChartData);
 };
 init();

@@ -8,7 +8,6 @@ class ReportView extends View {
 
 	_generateMarkup() {
 		const data = this._data.daily;
-		console.log(data);
 		const city = this._data.city;
 
 		return `
