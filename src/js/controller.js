@@ -30,8 +30,14 @@ const controlChartData = function () {
 	ChartView.updateChart();
 };
 
+const controlChartTempUnit = function () {
+	ChartView.changeTempUnit();
+	ChartView.updateChart();
+};
+
 const init = function () {
 	start();
 	ChartView.addHandlerClickOpt(controlChartData);
+	ChartView.addHandlerChangeUnit(controlChartTempUnit);
 };
 init();

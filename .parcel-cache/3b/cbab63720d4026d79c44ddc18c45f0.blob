@@ -1,0 +1,62 @@
+"use strict";
+
+var _auto = _interopRequireDefault(require("chart.js/auto"));
+
+var _chartView = _interopRequireDefault(require("./views/chartView"));
+
+var model = _interopRequireWildcard(require("./model.js"));
+
+var _citiesView = _interopRequireDefault(require("./views/citiesView"));
+
+var _weatherForecastView = _interopRequireDefault(require("./views/weatherForecastView"));
+
+var _reportView = _interopRequireDefault(require("./views/reportView"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const btnGetLocation = document.getElementById("btn-get-location");
+btnGetLocation.addEventListener("click", model.getPosition);
+
+const start = async function () {
+  try {
+    _reportView.default.renderSpinner();
+
+    _weatherForecastView.default.renderSpinner();
+
+    await model.loadWeatherData();
+
+    _reportView.default.render(model.state);
+
+    _reportView.default.updateUI(model.state.current);
+
+    _weatherForecastView.default.render(model.state);
+
+    _chartView.default.createChartData(model.state);
+
+    _chartView.default.chartRender();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const controlChartData = function () {
+  _chartView.default.createChartData(model.state);
+
+  _chartView.default.updateChart();
+};
+
+const controlChartTempUnit = function () {};
+
+const init = function () {
+  start();
+
+  _chartView.default.addHandlerClickOpt(controlChartData);
+
+  _chartView.default.addHandlerChangeUnit(controlChartTempUnit);
+};
+
+init();

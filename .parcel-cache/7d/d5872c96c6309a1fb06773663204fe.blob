@@ -1,0 +1,5 @@
+.tooltip {
+  height: 6rem;
+  width: 12rem;
+  background-color: blue;
+}

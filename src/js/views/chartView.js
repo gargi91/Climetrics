@@ -7,6 +7,8 @@ class ChartView extends View {
 	_errorMessage = "We could not get the current weather report!";
 	_message = "";
 	_activeTabElement = document.querySelector(".graph__day--today");
+	_graphTempElement = document.getElementById("graph-temp");
+	_activeTempUnit = "C";
 	_labels = [];
 	_dataPoints = [];
 	_myChart;
@@ -24,21 +26,48 @@ class ChartView extends View {
 		});
 	}
 
+	changeTempUnit() {
+		if (this._activeTempUnit === "C") {
+			//F to C
+			this._dataPoints = this._dataPoints.map((temp) => {
+				return ((temp - 32) * (5 / 9)).toFixed(1);
+			});
+		} else {
+			// C to F
+			this._dataPoints = this._dataPoints.map((temp) => {
+				return (temp * (9 / 5) + 32).toFixed(1);
+			});
+		}
+	}
+
+	addHandlerChangeUnit(handler) {
+		this._graphTempElement.addEventListener("change", (e) => {
+			if (e.target.value === "celcius") {
+				//Celius current
+				this._activeTempUnit = "C";
+			} else {
+				this._activeTempUnit = "F";
+			}
+			console.log(this._activeTempUnit);
+			handler();
+		});
+	}
+
 	createChartData(dataForChart) {
 		const activeTabElement = this._activeTabElement;
-		console.log(dataForChart);
 		let labels, dataPoints;
+		this._graphTempElement.value = "celcius";
+		this._activeTempUnit = "C";
 		if (activeTabElement.getAttribute("data-day") === "week") {
-			console.log("day is the active tab!!");
 			const dailyData = dataForChart.daily;
 			labels = dailyData.map((d) => d.date);
 			dataPoints = dailyData.map((d) => d.temp);
 		} else {
-			console.log("week is the active tab!!");
 			const hourlyData = dataForChart.hourly;
 			labels = hourlyData.map((d) => d.time).slice(0, 24);
 			dataPoints = hourlyData.map((d) => d.temp).slice(0, 24);
 		}
+
 		this._labels = labels;
 		this._dataPoints = dataPoints;
 	}
@@ -49,6 +78,7 @@ class ChartView extends View {
 
 		let labels = this._labels;
 		let dataPoints = this._dataPoints;
+		let tooltipUl;
 
 		const plugin = {
 			id: "custom_canvas_background_color",
@@ -96,7 +126,7 @@ class ChartView extends View {
 			labels: labels,
 			datasets: [
 				{
-					label: "Temperature in C",
+					label: `Temperature in C`,
 					data: dataPoints,
 					fill: false,
 					tension: 0.15,
@@ -113,6 +143,53 @@ class ChartView extends View {
 					pointHoverRadius: 5
 				}
 			]
+		};
+
+		// Custom Tooltip Handler
+		const getOrCreateTooltip = (chart) => {
+			let tooltipEle = chart.canvas.parentNode.querySelector("div");
+			if (!tooltipEle) {
+				tooltipEle = document.createElement("DIV");
+				tooltipEle.classList.add("tooltip");
+				tooltipUl = document.createElement("UL");
+				tooltipUl.classList.add("tooltip__list");
+
+				//append ul tooltip element to parent
+				tooltipEle.appendChild(tooltipUl);
+				//append tooltipEl to canvas
+				chart.canvas.parentNode.appendChild(tooltipEle);
+
+				console.log(chart.canvas.parentNode);
+			}
+			return tooltipEle;
+		};
+
+		const externalTooltipHandler = function (context) {
+			const { chart, tooltip } = context;
+			const tooltipEle = getOrCreateTooltip(chart);
+
+			// Hide if no tooltip
+			if (tooltip.opacity === 0) {
+				tooltipEle.style.opacity = 0;
+				return;
+			}
+
+			//Tooltip text
+			if (tooltip.body) {
+				const titleLines = tooltip.title || [];
+				const bodyLines = tooltip.body.map((b) => b.lines);
+				const tooltipLi = document.createElement("LI");
+
+				titleLines.forEach((title) => {
+					tooltipUl.appendChild(tooltipLi);
+					//create the span
+					const tooltipSpan = document.createElement("SPAN");
+					tooltipLi.appendChild(tooltipSpan);
+					//Create a text node with title
+					const tooltipTitle = document.createTextNode(title);
+					tooltipSpan.appendChild(tooltipTitle);
+				});
+			}
 		};
 
 		//Chart Instance
@@ -153,6 +230,10 @@ class ChartView extends View {
 				plugins: {
 					legend: {
 						display: false
+					},
+					tooltip: {
+						// enabled: false,
+						// external: externalTooltipHandler
 					}
 				}
 			}
@@ -161,7 +242,10 @@ class ChartView extends View {
 
 	updateChart() {
 		this._myChart.data.labels = this._labels;
-		this._myChart.data.datasets.data = this._dataPoints;
+		this._myChart.data.datasets[0].data = this._dataPoints;
+		this._myChart.data.datasets[0].label = `Temperature in ${
+			this._activeTempUnit === "C" ? "C" : "F"
+		}`;
 		this._myChart.update();
 	}
 }

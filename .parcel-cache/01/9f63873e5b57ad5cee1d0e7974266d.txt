@@ -1,4 +1,4 @@
-19398
+19399
 110C:\Users\GARGI\Desktop\Climetrics\node_modules\@babel\generator\node_modules\source-map\dist\source-map.min.js131477959740000000 0
 76C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\object\is.js121436361000000000 0
 71C:\Users\GARGI\Desktop\Climetrics\node_modules\moment\dist\locale\sr.js132748706921991502 0
@@ -22,7 +22,7 @@
 78C:\Users\GARGI\Desktop\Climetrics\node_modules\hex-color-regex\CONTRIBUTING.md131409266540000000 0
 57C:\Users\GARGI\Desktop\Climetrics\node_modules\rgba-regex132714707316837726 1
 69C:\Users\GARGI\Desktop\Climetrics\node_modules\browserify-des\license121436361000000000 0
-38C:\Users\GARGI\Desktop\Climetrics\dist132751191309632323 1
+38C:\Users\GARGI\Desktop\Climetrics\dist132753135506757927 1
 63C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\uniqBy.js121436361000000000 0
 81C:\Users\GARGI\Desktop\Climetrics\node_modules\svgo\plugins\convertShapeToPath.js121436361000000000 0
 68C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\isEqualWith.js121436361000000000 0
@@ -57,7 +57,7 @@
 109C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-normalize-whitespace\node_modules\postcss\CHANGELOG.md121436361000000000 0
 83C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\proposals\using-statement.js121436361000000000 0
 62C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\unset.js121436361000000000 0
-49C:\Users\GARGI\Desktop\Climetrics\src\js\model.js132751186954079418 0
+49C:\Users\GARGI\Desktop\Climetrics\src\js\model.js132751913610838054 0
 75C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\internals\is-pure.js121436361000000000 0
 91C:\Users\GARGI\Desktop\Climetrics\node_modules\regenerate-unicode-properties\Script\Newa.js121436361000000000 0
 48C:\Users\GARGI\Desktop\Climetrics\.htmlnanorc.js132714845217793956 0
@@ -145,7 +145,7 @@
 69C:\Users\GARGI\Desktop\Climetrics\node_modules\word-wrap\package.json132714707304467738 0
 77C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-normalize-repeat-style132714707313477735 1
 63C:\Users\GARGI\Desktop\Climetrics\node_modules\cssesc\README.md121436361000000000 0
-52C:\Users\GARGI\Desktop\Climetrics\src\sass\main.scss132716725831989818 0
+52C:\Users\GARGI\Desktop\Climetrics\src\sass\main.scss132752444908346174 0
 76C:\Users\GARGI\Desktop\Climetrics\node_modules\vm-browserify\readme.markdown121436361000000000 0
 56C:\Users\GARGI\Desktop\Climetrics\node_modules\tweetnacl132714707309907711 1
 119C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-discard-overridden\src\__tests__\fixtures\counter-style.post.css121436361000000000 0
@@ -193,7 +193,7 @@
 73C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\internals\fails.js121436361000000000 0
 64C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\xorWith.js121436361000000000 0
 84C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\stable\object\from-entries.js121436361000000000 0
-44C:\Users\GARGI\Desktop\Climetrics\index.html132748535740100718 0
+44C:\Users\GARGI\Desktop\Climetrics\index.html132751938501345172 0
 46C:\Users\GARGI\Desktop\Climetrics\node_modules132748706952386311 1
 92C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-svgo\node_modules\postcss\lib\root.js121436361000000000 0
 110C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-convert-values\node_modules\supports-color\package.json132714891960480890 0
@@ -264,6 +264,15 @@
 92C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\internals\correct-prototype-getter.js121436361000000000 0
 40C:\Users\GARGI\Desktop\Climetrics\src\js132744374081500596 1
 74C:\Users\GARGI\Desktop\Climetrics\node_modules\moment\dist\locale\ar-tn.js132748706656600336 0
+66C:\Users\GARGI\Desktop\Climetrics\node_modules\word-wrap\README.md131274891740000000 0
+81C:\Users\GARGI\Desktop\Climetrics\node_modules\css-tree\lib\syntax\node\Atrule.js121436361000000000 0
+95C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\MouseEvent-impl.js121436361000000000 0
+67C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\core.js121436361000000000 0
+70C:\Users\GARGI\Desktop\Climetrics\node_modules\signal-exit\LICENSE.txt121436361000000000 0
+55C:\Users\GARGI\Desktop\Climetrics\node_modules\css-what132714707334177723 1
+93C:\Users\GARGI\Desktop\Climetrics\node_modules\caniuse-lite\data\features\user-select-none.js121436361000000000 0
+68C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\_baseGetTag.js121436361000000000 0
+67C:\Users\GARGI\Desktop\Climetrics\src\sass\components\_tooltip.scss132752457126431106 0
 114C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-modules-extract-imports\node_modules\postcss\docs\syntax.md121436361000000000 0
 101C:\Users\GARGI\Desktop\Climetrics\node_modules\regenerate-unicode-properties\Binary_Property\Emoji.js121436361000000000 0
 67C:\Users\GARGI\Desktop\Climetrics\node_modules\is-callable\index.js121436361000000000 0
@@ -287,7 +296,7 @@
 42C:\Users\GARGI\Desktop\Climetrics\src\sass132716141680742073 1
 58C:\Users\GARGI\Desktop\Climetrics\node_modules\object.pick132714707320367749 1
 54C:\Users\GARGI\Desktop\Climetrics\node_modules\ret\lib132714707227847706 1
-53C:\Users\GARGI\Desktop\Climetrics\src\sass\components132716591186894309 1
+53C:\Users\GARGI\Desktop\Climetrics\src\sass\components132752444639101350 1
 116C:\Users\GARGI\Desktop\Climetrics\node_modules\cssnano-preset-default\node_modules\postcss\docs\guidelines\plugin.md121436361000000000 0
 74C:\Users\GARGI\Desktop\Climetrics\node_modules\argparse\lib\action\help.js130992232530000000 0
 93C:\Users\GARGI\Desktop\Climetrics\node_modules\source-map-resolve\lib\decode-uri-component.js121436361000000000 0
@@ -436,7 +445,7 @@
 58C:\Users\GARGI\Desktop\Climetrics\node_modules\request\lib132714707206947712 1
 80C:\Users\GARGI\Desktop\Climetrics\node_modules\stylehacks\dist\plugins\slash9.js121436361000000000 0
 85C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2020\SpeciesConstructor.js121436361000000000 0
-54C:\Users\GARGI\Desktop\Climetrics\src\js\controller.js132751191303006665 0
+54C:\Users\GARGI\Desktop\Climetrics\src\js\controller.js132752368618348825 0
 84C:\Users\GARGI\Desktop\Climetrics\node_modules\js-yaml\lib\js-yaml\type\timestamp.js121436361000000000 0
 64C:\Users\GARGI\Desktop\Climetrics\node_modules\crypto-browserify132714707306677722 1
 73C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-calc\dist\index.js121436361000000000 0
@@ -450,7 +459,7 @@
 76C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2015\SameValue.js121436361000000000 0
 117C:\Users\GARGI\Desktop\Climetrics\node_modules\@babel\plugin-bugfix-v8-spread-parameters-in-optional-chaining\LICENSE121012626000000000 0
 86C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-discard-overridden\node_modules132714891955443838 1
-46C:\Users\GARGI\Desktop\Climetrics\src\js\views132751163349178939 1
+46C:\Users\GARGI\Desktop\Climetrics\src\js\views132752069729679782 1
 131C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-merge-rules\node_modules\postcss-selector-parser\dist\selectors\container.js121436361000000000 0
 92C:\Users\GARGI\Desktop\Climetrics\node_modules\react\cjs\react-jsx-runtime.production.min.js121436361000000000 0
 103C:\Users\GARGI\Desktop\Climetrics\node_modules\cssnano-util-raw-cache\node_modules\postcss\lib\input.js121436361000000000 0
@@ -462,7 +471,7 @@
 67C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\stubObject.js121436361000000000 0
 59C:\Users\GARGI\Desktop\Climetrics\node_modules\browserslist132714707321347722 1
 78C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2018\GetIterator.js121436361000000000 0
-59C:\Users\GARGI\Desktop\Climetrics\src\js\views\chartView.js132744330462632315 0
+59C:\Users\GARGI\Desktop\Climetrics\src\js\views\chartView.js132753135361505541 0
 77C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\operations\2018.js121436361000000000 0
 60C:\Users\GARGI\Desktop\Climetrics\src\img\cities\NewYork.jpg132716171659330002 0
 88C:\Users\GARGI\Desktop\Climetrics\node_modules\posthtml\node_modules\domhandler\index.js131703354330000000 0
@@ -507,13 +516,13 @@
 57C:\Users\GARGI\Desktop\Climetrics\node_modules\source-map132714707314937704 1
 67C:\Users\GARGI\Desktop\Climetrics\node_modules\querystring\index.js130069921000000000 0
 57C:\Users\GARGI\Desktop\Climetrics\node_modules\node-forge132714707325377715 1
+68C:\Users\GARGI\Desktop\Climetrics\node_modules\querystring\Readme.md130069927080000000 0
+79C:\Users\GARGI\Desktop\Climetrics\node_modules\request-promise-native\README.md121436361000000000 0
+69C:\Users\GARGI\Desktop\Climetrics\src\js\views\weatherForecastView.js132751458513434409 0
 84C:\Users\GARGI\Desktop\Climetrics\node_modules\cssnano-util-same-parent\package.json132714707333897702 0
 68C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\web\timers.js121436361000000000 0
 83C:\Users\GARGI\Desktop\Climetrics\node_modules\stylehacks\dist\plugins\important.js121436361000000000 0
 60C:\Users\GARGI\Desktop\Climetrics\node_modules\acorn-globals132714707336297711 1
-68C:\Users\GARGI\Desktop\Climetrics\node_modules\querystring\Readme.md130069927080000000 0
-79C:\Users\GARGI\Desktop\Climetrics\node_modules\request-promise-native\README.md121436361000000000 0
-69C:\Users\GARGI\Desktop\Climetrics\src\js\views\weatherForecastView.js132751176183585557 0
 52C:\Users\GARGI\Desktop\Climetrics\node_modules\cssom132714707334127700 1
 79C:\Users\GARGI\Desktop\Climetrics\node_modules\is-arguments\.github\FUNDING.yml121436361000000000 0
 117C:\Users\GARGI\Desktop\Climetrics\node_modules\stylehacks\node_modules\postcss-selector-parser\dist\selectors\root.js121436361000000000 0
@@ -1029,7 +1038,7 @@
 119C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-normalize-url\node_modules\postcss-value-parser\lib\stringify.js121436361000000000 0
 74C:\Users\GARGI\Desktop\Climetrics\node_modules\public-encrypt\package.json132714707306397728 0
 96C:\Users\GARGI\Desktop\Climetrics\node_modules\caniuse-lite\data\features\css-in-out-of-range.js121436361000000000 0
-49C:\Users\GARGI\Desktop\Climetrics\dist\index.html132751191307377321 0
+49C:\Users\GARGI\Desktop\Climetrics\dist\index.html132753135504471065 0
 99C:\Users\GARGI\Desktop\Climetrics\node_modules\unicode-match-property-value-ecmascript\package.json132714707309527698 0
 75C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2016\ToObject.js121436361000000000 0
 81C:\Users\GARGI\Desktop\Climetrics\node_modules\unset-value\node_modules\has-value132714707308447711 1
@@ -1295,13 +1304,6 @@
 55C:\Users\GARGI\Desktop\Climetrics\node_modules\css-tree132714707314917769 1
 70C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\sortedIndexOf.js121436361000000000 0
 103C:\Users\GARGI\Desktop\Climetrics\node_modules\uncss\node_modules\postcss-selector-parser\dist\index.js121436361000000000 0
-66C:\Users\GARGI\Desktop\Climetrics\node_modules\word-wrap\README.md131274891740000000 0
-81C:\Users\GARGI\Desktop\Climetrics\node_modules\css-tree\lib\syntax\node\Atrule.js121436361000000000 0
-95C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\MouseEvent-impl.js121436361000000000 0
-67C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\core.js121436361000000000 0
-70C:\Users\GARGI\Desktop\Climetrics\node_modules\signal-exit\LICENSE.txt121436361000000000 0
-55C:\Users\GARGI\Desktop\Climetrics\node_modules\css-what132714707334177723 1
-93C:\Users\GARGI\Desktop\Climetrics\node_modules\caniuse-lite\data\features\user-select-none.js121436361000000000 0
 83C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2020\Number\remainder.js121436361000000000 0
 73C:\Users\GARGI\Desktop\Climetrics\node_modules\cssnano-util-get-arguments132714707334167717 1
 90C:\Users\GARGI\Desktop\Climetrics\node_modules\regenerate-unicode-properties\Script\Mro.js121436361000000000 0
@@ -2399,15 +2401,6 @@
 80C:\Users\GARGI\Desktop\Climetrics\node_modules\argparse\lib\action\subparsers.js130992234610000000 0
 115C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-minify-font-values\node_modules\postcss-value-parser\LICENSE121436361000000000 0
 60C:\Users\GARGI\Desktop\Climetrics\node_modules\object.values132714707305097714 1
-61C:\Users\GARGI\Desktop\Climetrics\node_modules\buffer\LICENSE121436361000000000 0
-93C:\Users\GARGI\Desktop\Climetrics\node_modules\slice-ansi\node_modules\color-convert\route.js121436361000000000 0
-73C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\README.md121436361000000000 0
-83C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\regexp\to-string.js121436361000000000 0
-66C:\Users\GARGI\Desktop\Climetrics\node_modules\moment\locale\es.js132748706703268562 0
-104C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-convert-values\node_modules\postcss\lib\vendor.js121436361000000000 0
-85C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2019\CreateDataProperty.js121436361000000000 0
-97C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-svgo\node_modules\postcss\lib\stringify.js121436361000000000 0
-59C:\Users\GARGI\Desktop\Climetrics\node_modules\setimmediate132714707315037718 1
 115C:\Users\GARGI\Desktop\Climetrics\node_modules\regenerate-unicode-properties\Script_Extensions\Old_South_Arabian.js121436361000000000 0
 79C:\Users\GARGI\Desktop\Climetrics\node_modules\uri-js\dist\es5\uri.all.min.d.ts121436361000000000 0
 66C:\Users\GARGI\Desktop\Climetrics\node_modules\for-in\package.json132714707332317702 0
@@ -2694,6 +2687,15 @@
 92C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\resolver\incorrect_main\index.js121436361000000000 0
 75C:\Users\GARGI\Desktop\Climetrics\node_modules\whatwg-encoding\package.json132714707306227710 0
 84C:\Users\GARGI\Desktop\Climetrics\node_modules\babel-plugin-polyfill-regenerator\esm132714707216587869 1
+61C:\Users\GARGI\Desktop\Climetrics\node_modules\buffer\LICENSE121436361000000000 0
+93C:\Users\GARGI\Desktop\Climetrics\node_modules\slice-ansi\node_modules\color-convert\route.js121436361000000000 0
+73C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\README.md121436361000000000 0
+83C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\regexp\to-string.js121436361000000000 0
+66C:\Users\GARGI\Desktop\Climetrics\node_modules\moment\locale\es.js132748706703268562 0
+104C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-convert-values\node_modules\postcss\lib\vendor.js121436361000000000 0
+85C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2019\CreateDataProperty.js121436361000000000 0
+97C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-svgo\node_modules\postcss\lib\stringify.js121436361000000000 0
+59C:\Users\GARGI\Desktop\Climetrics\node_modules\setimmediate132714707315037718 1
 62C:\Users\GARGI\Desktop\Climetrics\node_modules\shebang-command132714707315427722 1
 66C:\Users\GARGI\Desktop\Climetrics\node_modules\has-bigints\.github132714707248257746 1
 81C:\Users\GARGI\Desktop\Climetrics\node_modules\caniuse-lite\data\features\cors.js121436361000000000 0
@@ -3922,8 +3924,6 @@
 86C:\Users\GARGI\Desktop\Climetrics\node_modules\ora\node_modules\ansi-styles\index.d.ts121436361000000000 0
 89C:\Users\GARGI\Desktop\Climetrics\node_modules\@parcel\markdown-ansi\src\markdown-ansi.js121436361000000000 0
 110C:\Users\GARGI\Desktop\Climetrics\node_modules\uncss\node_modules\postcss-selector-parser\dist\__tests__\id.js121436361000000000 0
-77C:\Users\GARGI\Desktop\Climetrics\node_modules\@nodelib\fs.walk\out\providers132714707230617711 1
-89C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\resolver\multirepo\lerna.json121436361000000000 0
 113C:\Users\GARGI\Desktop\Climetrics\node_modules\uncss\node_modules\postcss-selector-parser\dist\__tests__\lossy.js121436361000000000 0
 103C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-modules-values\node_modules\postcss\lib\parse.js121436361000000000 0
 115C:\Users\GARGI\Desktop\Climetrics\node_modules\uncss\node_modules\postcss-selector-parser\dist\__tests__\postcss.js121436361000000000 0
@@ -5762,6 +5762,8 @@
 79C:\Users\GARGI\Desktop\Climetrics\node_modules\connect\node_modules\ms\index.js131394109200000000 0
 93C:\Users\GARGI\Desktop\Climetrics\node_modules\regenerate-unicode-properties\Script\Lydian.js121436361000000000 0
 98C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\resolver\nested_symlinks\mylib\sync.js121436361000000000 0
+77C:\Users\GARGI\Desktop\Climetrics\node_modules\@nodelib\fs.walk\out\providers132714707230617711 1
+89C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\resolver\multirepo\lerna.json121436361000000000 0
 97C:\Users\GARGI\Desktop\Climetrics\node_modules\resolve\test\resolver\multirepo\packages\package-a132714707260667705 1
 83C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\stable\array\virtual\some.js121436361000000000 0
 83C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\features\array\last-index.js121436361000000000 0
@@ -6758,7 +6760,6 @@
 67C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\fp\bindKey.js121436361000000000 0
 67C:\Users\GARGI\Desktop\Climetrics\node_modules\path-browserify\test132714707234357733 1
 59C:\Users\GARGI\Desktop\Climetrics\node_modules\react-is\cjs132714707230167686 1
-95C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\WheelEvent-impl.js121436361000000000 0
 89C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-normalize-display-values\README.md121436361000000000 0
 89C:\Users\GARGI\Desktop\Climetrics\node_modules\@babel\runtime\helpers\arrayLikeToArray.js121012626000000000 0
 59C:\Users\GARGI\Desktop\Climetrics\node_modules\react-is\umd132714707230627722 1
@@ -6821,7 +6822,7 @@
 71C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\es\array\some.js121436361000000000 0
 65C:\Users\GARGI\Desktop\Climetrics\node_modules\randomfill\test.js131528155570000000 0
 108C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-minify-selectors\node_modules\postcss\lib\tokenize.js121436361000000000 0
-61C:\Users\GARGI\Desktop\Climetrics\dist\Amsterdam.95b32ab8.jpg132751191307926644 0
+61C:\Users\GARGI\Desktop\Climetrics\dist\Amsterdam.95b32ab8.jpg132753135498233712 0
 70C:\Users\GARGI\Desktop\Climetrics\node_modules\randombytes\.travis.yml121436361000000000 0
 68C:\Users\GARGI\Desktop\Climetrics\node_modules\randombytes\.zuul.yml121436361000000000 0
 106C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-discard-empty\node_modules\postcss\lib\warn-once.js121436361000000000 0
@@ -7306,7 +7307,7 @@
 71C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\es\date\index.js121436361000000000 0
 117C:\Users\GARGI\Desktop\Climetrics\node_modules\posthtml\node_modules\domhandler\test\cases\10-singular_attribute.json131385971350000000 0
 86C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2016\OrdinaryHasProperty.js121436361000000000 0
-56C:\Users\GARGI\Desktop\Climetrics\dist\main.c2da0495.css132751191307304044 0
+56C:\Users\GARGI\Desktop\Climetrics\dist\main.c2da0495.css132753135504471065 0
 97C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-merge-longhand\node_modules\supports-color132714891961595097 1
 78C:\Users\GARGI\Desktop\Climetrics\node_modules\fast-glob\out\providers\filters132714707221317714 1
 108C:\Users\GARGI\Desktop\Climetrics\node_modules\posthtml\node_modules\domhandler\test\cases\12-text_only.json131385971350000000 0
@@ -9495,7 +9496,7 @@
 68C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-calc\dist\lib132714707209737704 1
 103C:\Users\GARGI\Desktop\Climetrics\node_modules\@parcel\transformer-jsonld\node_modules\json5\lib\cli.js121436361000000000 0
 93C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-calc\node_modules\postcss\lib\input.js121436361000000000 0
-63C:\Users\GARGI\Desktop\Climetrics\dist\profile-pic.9d57bd51.jpg132751191307294044 0
+63C:\Users\GARGI\Desktop\Climetrics\dist\profile-pic.9d57bd51.jpg132753135498078742 0
 99C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-calc\node_modules\postcss\lib\lazy-result.js121436361000000000 0
 111C:\Users\GARGI\Desktop\Climetrics\node_modules\@parcel\transformer-jsonld\node_modules\json5\dist\index.min.mjs121436361000000000 0
 101C:\Users\GARGI\Desktop\Climetrics\node_modules\postcss-calc\node_modules\postcss\lib\map-generator.js121436361000000000 0
@@ -11340,7 +11341,6 @@
 65C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\_baseFor.js121436361000000000 0
 70C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\_baseForRight.js121436361000000000 0
 65C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\_baseGet.js121436361000000000 0
-68C:\Users\GARGI\Desktop\Climetrics\node_modules\lodash\_baseGetTag.js121436361000000000 0
 88C:\Users\GARGI\Desktop\Climetrics\node_modules\@parcel\runtime-js\lib\bundle-manifest.js121436361000000000 0
 64C:\Users\GARGI\Desktop\Climetrics\node_modules\entities\lib\maps132714707251747702 1
 71C:\Users\GARGI\Desktop\Climetrics\node_modules\@parcel\babel-preset-env132714707308257751 1
@@ -12176,6 +12176,7 @@
 97C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\MessageEvent-impl.js121436361000000000 0
 95C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\TouchEvent-impl.js121436361000000000 0
 94C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2020\GetPrototypeFromConstructor.js121436361000000000 0
+95C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\events\WheelEvent-impl.js121436361000000000 0
 112C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\domparsing\parse5-adapter-serialization.js121436361000000000 0
 82C:\Users\GARGI\Desktop\Climetrics\node_modules\fast-json-stable-stringify\index.js121436361000000000 0
 97C:\Users\GARGI\Desktop\Climetrics\node_modules\jsdom\lib\jsdom\living\domparsing\serialization.js121436361000000000 0
@@ -13443,7 +13444,7 @@
 78C:\Users\GARGI\Desktop\Climetrics\node_modules\caniuse-lite\data\regions\BH.js121436361000000000 0
 63C:\Users\GARGI\Desktop\Climetrics\node_modules\foreach\index.js130558403360000000 0
 79C:\Users\GARGI\Desktop\Climetrics\node_modules\es-abstract\2017\RegExpCreate.js121436361000000000 0
-65C:\Users\GARGI\Desktop\Climetrics\dist\controller.3e852e71.js.map132751191309609267 0
+65C:\Users\GARGI\Desktop\Climetrics\dist\controller.3e852e71.js.map132753135506757927 0
 62C:\Users\GARGI\Desktop\Climetrics\node_modules\foreach\LICENSE130558403360000000 0
 75C:\Users\GARGI\Desktop\Climetrics\node_modules\core-js\es\symbol\replace.js121436361000000000 0
 63C:\Users\GARGI\Desktop\Climetrics\node_modules\foreach\Makefile130558403360000000 0
@@ -19356,7 +19357,7 @@
 59C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\ncp.cmd132714707341817697 0
 66C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\node-gyp-build132714707341907727 0
 79C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\node-gyp-build-optional.ps1132714707341887697 0
-64C:\Users\GARGI\Desktop\Climetrics\dist\site.824c79f3.webmanifest132751191307271604 0
+64C:\Users\GARGI\Desktop\Climetrics\dist\site.824c79f3.webmanifest132753135497998741 0
 75C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\node-gyp-build-test.cmd132714707341897705 0
 70C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\node-gyp-build.ps1132714707341897705 0
 58C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\parcel132714707343947685 0
@@ -19385,15 +19386,15 @@
 57C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\uncss132714707343857684 0
 61C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\uncss.ps1132714707343857684 0
 60C:\Users\GARGI\Desktop\Climetrics\node_modules\.bin\uuid.cmd132714707343407708 0
-68C:\Users\GARGI\Desktop\Climetrics\dist\apple-touch-icon.1cb5b92e.png132751191307251632 0
-61C:\Users\GARGI\Desktop\Climetrics\dist\controller.3e852e71.js132751191309439213 0
-65C:\Users\GARGI\Desktop\Climetrics\dist\favicon-16x16.ece2ef17.png132751191307261681 0
-65C:\Users\GARGI\Desktop\Climetrics\dist\favicon-32x32.a9b6f6ab.png132751191307271604 0
-57C:\Users\GARGI\Desktop\Climetrics\dist\icons.782b9d3f.svg132751191307324059 0
-58C:\Users\GARGI\Desktop\Climetrics\dist\Jaipur.de3b8125.jpg132751191307999256 0
-61C:\Users\GARGI\Desktop\Climetrics\dist\logo-full.136ddb62.svg132751191307282720 0
-58C:\Users\GARGI\Desktop\Climetrics\dist\London.4a0b504d.jpg132751191307949271 0
-60C:\Users\GARGI\Desktop\Climetrics\dist\main.c2da0495.css.map132751191307883330 0
-59C:\Users\GARGI\Desktop\Climetrics\dist\NewYork.03c85564.jpg132751191307979335 0
-57C:\Users\GARGI\Desktop\Climetrics\dist\Paris.874f36ee.jpg132751191307853372 0
+68C:\Users\GARGI\Desktop\Climetrics\dist\apple-touch-icon.1cb5b92e.png132753135498078742 0
+61C:\Users\GARGI\Desktop\Climetrics\dist\controller.3e852e71.js132753135506601449 0
+65C:\Users\GARGI\Desktop\Climetrics\dist\favicon-16x16.ece2ef17.png132753135498078742 0
+65C:\Users\GARGI\Desktop\Climetrics\dist\favicon-32x32.a9b6f6ab.png132753135498078742 0
+57C:\Users\GARGI\Desktop\Climetrics\dist\icons.782b9d3f.svg132753135498078742 0
+58C:\Users\GARGI\Desktop\Climetrics\dist\Jaipur.de3b8125.jpg132753135498233712 0
+61C:\Users\GARGI\Desktop\Climetrics\dist\logo-full.136ddb62.svg132753135498078742 0
+58C:\Users\GARGI\Desktop\Climetrics\dist\London.4a0b504d.jpg132753135498233712 0
+60C:\Users\GARGI\Desktop\Climetrics\dist\main.c2da0495.css.map132753135504551472 0
+59C:\Users\GARGI\Desktop\Climetrics\dist\NewYork.03c85564.jpg132753135498233712 0
+57C:\Users\GARGI\Desktop\Climetrics\dist\Paris.874f36ee.jpg132753135498158764 0
 55C:\Users\GARGI\Desktop\Climetrics\dist\test.3ff92afb.js132744616732827176 0
