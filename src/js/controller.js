@@ -6,10 +6,6 @@ import CitiesView from "./views/citiesView";
 import WeatherForecastView from "./views/weatherForecastView";
 import ReportView from "./views/reportView";
 
-const btnGetLocation = document.getElementById("btn-get-location");
-
-btnGetLocation.addEventListener("click", model.getPosition);
-
 const start = async function () {
 	try {
 		ReportView.renderSpinner();
@@ -35,9 +31,26 @@ const controlChartTempUnit = function () {
 	ChartView.updateChart();
 };
 
+const controlGetLocation = async function () {
+	try {
+		ReportView.renderSpinner();
+		WeatherForecastView.renderSpinner();
+		await model.getPosition();
+		await model.loadWeatherData();
+		ReportView.render(model.state);
+		ReportView.updateUI(model.state.current);
+		WeatherForecastView.render(model.state);
+		ChartView.createChartData(model.state);
+		ChartView.updateChart();
+	} catch (error) {
+		console.error(error);
+	}
+};
+
 const init = function () {
 	start();
 	ChartView.addHandlerClickOpt(controlChartData);
 	ChartView.addHandlerChangeUnit(controlChartTempUnit);
+	ReportView.addHandlerGetLocation(controlGetLocation);
 };
 init();

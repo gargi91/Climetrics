@@ -1,6 +1,0 @@
-.tooltip {
-  height: 8rem;
-  width: 12rem;
-  background-color: var(--color-white);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-}

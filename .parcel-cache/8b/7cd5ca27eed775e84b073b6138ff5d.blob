@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="b708b539b3c1e584b0e5b4001774ce6a">
+	<link rel="icon" type="image/png" sizes="32x32" href="94d4b2f7979638320c8f2a3dfe1f0284">
+	<link rel="icon" type="image/png" sizes="16x16" href="b1dd9609aa08117705a0faf181e990b5">
+	<link rel="manifest" href="1c9a5cab9760b9c4c2b5d99f025da497">
+	<link href="9b085bdd49783f4f104981fdc20cae7a" rel="stylesheet">
+	<link rel="stylesheet" href="ff4e22f715933dedaa3bf223bc3d2d9f">
+	<link rel="stylesheet" href="8bf3aa0590579dbc0aa7de49988a8c5f">
+	<script defer="" src="0554273c08811d8dcae53a19da1e4d34"></script>
+	<title>Climetrics | Get weather report at your ease</title>
+</head>
+
+<body>
+	<main class=" container animate__animated animate__fadeIn">
+		<div class="left">
+
+			<!-- Navigation = logo + side bar -->
+			<div class="navigation">
+				<header class="header">
+					<img src="2eb0dfb615d41789b24e22a53ea62d8a" alt="logo" class="header__logo">
+					<nav class="sidebar">
+
+						<!-- side nav component -->
+						<ul class="side-nav">
+							<li class="side-nav__item side-nav__item--active">
+								<a href="#" class="side-nav__link">
+									<svg class="side-nav__icon">
+										<use xlink:href="dee444048f98c1d788e9e858e0ff3c7d">
+										</use>
+									</svg>
+									<span>Dashboard</span>
+								</a>
+							</li>
+							<li class="side-nav__item ">
+								<a href="#" class="side-nav__link">
+									<svg class="side-nav__icon">
+										<use xlink:href="9c53de3715356eb97716795172949b13">
+										</use>
+									</svg>
+									<span>Statistics</span>
+								</a>
+							</li>
+							<li class="side-nav__item ">
+								<a href="#" class="side-nav__link">
+									<svg class="side-nav__icon">
+										<use xlink:href="609d54f41b3ff6fa297178e515a8385a">
+										</use>
+									</svg>
+									<span>Map
+								</span></a>
+							</li>
+							<li class="side-nav__item ">
+								<a href="#" class="side-nav__link">
+									<svg class="side-nav__icon">
+										<use xlink:href="64efb63b68476b0193843d2196ed2054">
+										</use>
+									</svg>
+									<span>Calendar</span>
+								</a>
+							</li>
+							<li class="side-nav__item ">
+								<a href="#" class="side-nav__link">
+									<svg class="side-nav__icon">
+										<use xlink:href="56dcee0b0e6c01189fdcf2e223a9801f">
+										</use>
+									</svg>
+									<span>Settings</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+				<!-- Weather report -->
+
+				<section class="report">
+					<div class="report__data">
+						<div class="date-time">
+						<svg class="date-time__icon">
+							<use xlink:href="485b17ce7e78a19bd00d77b28acde27b">
+							</use>
+						</svg>
+
+						<div class="date-time__content">
+							<div class="date-time__day">Today</div>
+							<div class="date-time__time">11:44</div>
+							<div class="date-time__date">Mon, 11 January</div>
+						</div>
+					</div>
+
+					<div class="temperature">+4 &deg;C</div>
+
+					<div class="location">
+						<div class="location__city">New York</div>
+						<div class="location__country">United States</div>
+					</div>
+
+					<div class="stats">
+						<div class="stats__item stats__item--humidity">
+							<h6 class="stats__label">Humidity:</h6>
+							<h6 class="stats__value">76%</h6>
+							<div class="stats__progress-bar"></div>
+						</div>
+						<div class="stats__item stats__item--precipation">
+							<h6 class="stats__label">Precipation:</h6>
+							<h6 class="stats__value">25%</h6>
+							<div class="stats__progress-bar"></div>
+						</div>
+						<div class="stats__item stats__item--wind">
+							<h6 class="stats__label">Wind:</h6>
+							<div id="cpuSpeed" class="gauge-container"></div>
+							<h6 class="stats__value">4.5Km/h</h6>
+						</div>
+					</div>
+					</div>
+					<button class="btn" id="btn-get-location">Get my location &rarr;</button>
+				</section>
+			</div>
+		</div>
+		<div class="right">
+			<main class="main">
+
+				<!-- user nav starts -->
+				<nav class="user-nav">
+
+					<!-- search -->
+					<div class="user-nav__search">
+						<div class="user-nav__icon user-nav__icon--search">
+							<svg>
+								<use xlink:href="f92d73b3a746cc92c06918e3dd593247">
+								</use>
+							</svg>
+						</div>
+						<input type="text" placeholder="Search" class="user-nav__query">
+					</div>
+
+					<!-- user -->
+					<div class="user-nav__user">
+						<div class="user-nav__icon user-nav__icon--notification">
+							<svg>
+								<use xlink:href="d08b682ac9a0cb4830f49a1e9d072d9a">
+								</use>
+							</svg>
+						</div>
+						<div class="user-nav__account">
+							<img src="42be860db9ad7d23cc74dd3534ff6f7c" alt="profile pic" class="user-nav__profile-pic">
+							<div class="user-nav__username">Mary Wilson</div>
+						</div>
+					</div>
+				</nav>
+
+				<!-- Heading - 1 -->
+				<h1 class="heading--1">Weather Forecast</h1>
+
+				<!-- Cities Section -->
+				<section class="section-cities">
+
+					<div class="city city--1">
+						<figcaption class="city__display">
+							<img src="4caaab7746a74923829e41970dff420f" alt="Amsterdam" class="city__img">
+							<div class="city__weather">
+								<svg class="city__weather--icon">
+									<use href="485b17ce7e78a19bd00d77b28acde27b">
+								</use></svg>
+								<div class="city__weather--time">11:28</div>
+							</div>
+						</figcaption>
+						<div class="city__header">
+							<h6 class="city__title">Amsterdam</h6>
+						</div>
+					</div>
+
+					<div class="city city--2">
+						<figcaption class="city__display">
+							<img src="c12e55a74a8df0001acd607b5f628485" alt="New York" class="city__img">
+							<div class="city__weather">
+								<svg class="city__weather--icon">
+									<use href="d00d5f6a957e35711b81b0ee6b0afb66">
+								</use></svg>
+								<div class="city__weather--time">16:28</div>
+							</div>
+						</figcaption>
+						<div class="city__header">
+							<h6 class="city__title">New York</h6>
+						</div>
+					</div>
+
+					<div class="city city--3">
+						<figcaption class="city__display">
+							<img src="86e29917efdc9c13d04a26a861a536a1" alt="Jaipur" class="city__img">
+							<div class="city__weather">
+								<svg class="city__weather--icon">
+									<use href="3a95c390ce4bd0f67c8874d5922a2402">
+								</use></svg>
+								<div class="city__weather--time">22:28</div>
+							</div>
+						</figcaption>
+						<div class="city__header">
+							<h6 class="city__title">Jaipur</h6>
+						</div>
+					</div>
+
+					<div class="city city--4">
+						<figcaption class="city__display">
+							<img src="564636d3a8466c2ddc946a798d6c8145" alt="London" class="city__img">
+							<div class="city__weather">
+								<svg class="city__weather--icon">
+									<use href="e57d92fd60ff657886d27567c5830e3c">
+								</use></svg>
+								<div class="city__weather--time">16:08</div>
+							</div>
+						</figcaption>
+						<div class="city__header">
+							<h6 class="city__title">London</h6>
+						</div>
+					</div>
+
+					<div class="city city--5">
+						<figcaption class="city__display">
+							<img src="77ccf08eda59c51bb70c99ffb8ed5d95" alt="Paris" class="city__img">
+							<div class="city__weather">
+								<svg class="city__weather--icon">
+									<use href="82353f2ba0347f379e802f03e3fadb1f">
+								</use></svg>
+								<div class="city__weather--time">09:13</div>
+							</div>
+						</figcaption>
+						<div class="city__header">
+							<h6 class="city__title">Paris</h6>
+						</div>
+					</div>
+				</section>
+
+				<!-- Section Weather Forecast -->
+				<section class="weather-forecast">
+					<div class="weather-forecast__header">
+						<h2 class="heading--2 city-main">New York</h2>
+						<button class="btn btn--detail">Details more
+							&rarr;</button>
+					</div>
+
+					<div class="glider weather-forecast__track">
+						<button class="btn btn--dark btn--left hidden">
+							<svg class="forecast__icon">
+								<use href="96e2059d6b83c7c5e8c041bdb6b2ca01">
+							</use></svg>
+						</button>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">11 Mon</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">12 Tue</div>
+						</div>
+						<div class="glider__item forecast forecast--today">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">13 Wed</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">14 Thu</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">15 Fri</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">16 Sat</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">17 Sun</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">16 Sat</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">17 Sun</div>
+						</div>
+						<div class="glider__item forecast blur-bg">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">18 Sun</div>
+						</div>
+						<div class="glider__item forecast">
+							<svg class="forecast__icon">
+								<use href="82353f2ba0347f379e802f03e3fadb1f">
+							</use></svg>
+							<h6 class="forecast__temperature">-5/+4</h6>
+							<div class="forecast__day">18 Sun</div>
+						</div>
+						<button class="btn btn--dark btn--right ">
+							<svg class="forecast__icon">
+								<use href="c52a13f04913906ae382a13feb5366dc">
+							</use></svg>
+						</button>
+					</div>
+				</section>
+
+				<!-- Section weather graph -->
+				<section class="weather-graph">
+					<h3 class="heading--3">Weather graph</h3>
+					<div class="graph">
+						<div class="graph__menu">
+							<div class="graph__days">
+								<div class="graph__day graph__day--today graph__day--active" data-day="today">
+									Day</div>
+								<div class="graph__day graph__day--week " data-day="week">
+									7 Days</div>
+							</div>
+							<select id="graph-temp" class="graph__temp">
+								<option value="celcius">Temperature (&deg;C)
+								</option>
+								<option value="fahrenheit">Temperature (&deg;F)
+								</option>
+							</select>
+						</div>
+						<div class="graph__chart-box">
+							<canvas id="myChart" class="graph__canvas"></canvas>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</main>
+</body>
+
+</html>

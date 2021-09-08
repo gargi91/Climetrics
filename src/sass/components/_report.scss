@@ -10,6 +10,11 @@
 		margin-top: 1rem;
 		text-align: center;
 	}
+
+	&__data {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .date-time {

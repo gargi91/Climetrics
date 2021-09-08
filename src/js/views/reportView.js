@@ -3,7 +3,8 @@ import Gauge from "svg-gauge/dist/gauge.js";
 import icons from "url:../../img/icons.svg"; // Parcel 2
 
 class ReportView extends View {
-	_parentElement = document.querySelector(".report");
+	_getLocationBtnEle = document.querySelector("#btn-get-location");
+	_parentElement = document.querySelector(".report__data");
 	_errorMessage = "We could not get the current weather report!";
 	_message = "";
 
@@ -54,7 +55,6 @@ class ReportView extends View {
                 <h6 class="stats__value">${data.windSpeed}Km/h</h6>
             </div>
         </div>
-        <button class="btn" id="btn-get-location">Get my location &rarr;</button>
         `;
 	}
 
@@ -78,6 +78,12 @@ class ReportView extends View {
 
 		// Set value and animate (value, animation duration in seconds)
 		cpuGauge.setValueAnimated(windSpeed, 2);
+	}
+
+	addHandlerGetLocation(handler) {
+		this._getLocationBtnEle.addEventListener("click", function () {
+			handler();
+		});
 	}
 }
 

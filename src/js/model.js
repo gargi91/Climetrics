@@ -30,15 +30,22 @@ const options = {
 	maximumAge: 0
 };
 
+const setLocationCoords = function (lat, lng) {
+	state.location.lat = lat;
+	state.location.lng = lng;
+};
+
 // Getting location using geolocation API
 export const getPosition = function () {
 	return new Promise(function (resolve, reject) {
 		navigator.geolocation.getCurrentPosition(
 			(position) => {
-				console.log(position);
+				const { latitude, longitude } = position.coords;
+				setLocationCoords(latitude, longitude);
+				resolve();
 			},
 			(err) => {
-				console.log(state);
+				alert("Unable to access your location, make sure you allow location access.");
 			},
 			options
 		);
@@ -49,7 +56,6 @@ export const loadWeatherData = async function () {
 	try {
 		const lat = state.location.lat;
 		const lng = state.location.lng;
-
 		// Get weather data
 		const dataWeather = await AJAX(
 			`${WEATHER_API_URL}lat=${lat}&lon=${lng}&units=metric&appid=${WEATHER_API_KEY}`
