@@ -17984,8 +17984,7 @@ const loadWeatherData = async function () {
     saveCurrentWeatherData(dataWeather);
     saveDailyWeatherData(dataWeather.daily);
     saveHourlyWeatherData(dataWeather.hourly);
-    const locationData = await (0, _helper.AJAX)(`${_config.GEOCODING_API_URL}q=${lat}+${lng}&key=${_config.GEOCODING_API_KEY}`); // console.log(locationData);
-
+    const locationData = await (0, _helper.AJAX)(`${_config.GEOCODING_API_URL}q=${lat}+${lng}&key=${_config.GEOCODING_API_KEY}`);
     state.city = locationData.results[0].components.city;
     state.country = locationData.results[0].components.country;
   } catch (err) {

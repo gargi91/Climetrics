@@ -46,6 +46,7 @@ export const getPosition = function () {
 			},
 			(err) => {
 				alert("Unable to access your location, make sure you allow location access.");
+				resolve();
 			},
 			options
 		);
@@ -66,6 +67,7 @@ export const loadWeatherData = async function () {
 		saveDailyWeatherData(dataWeather.daily);
 		saveHourlyWeatherData(dataWeather.hourly);
 		const locationData = await AJAX(`${GEOCODING_API_URL}q=${lat}+${lng}&key=${GEOCODING_API_KEY}`);
+		// console.log(locationData);
 		state.city = locationData.results[0].components.city;
 		state.country = locationData.results[0].components.country;
 	} catch (err) {
