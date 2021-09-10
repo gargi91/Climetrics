@@ -5,7 +5,7 @@
   "default": "index.js",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir ./dist"
+    "build": "parcel build ./src/index.html --dist-dir ./public"
   },
   "author": "Gargi Chaurasia",
   "license": "ISC",
