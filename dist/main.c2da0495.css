@@ -529,6 +529,8 @@ h6 {
   background-color: var(--color-white);
   padding: 0.75rem;
   border-radius: 1.5rem;
+  outline: none;
+  border: none;
 }
 .user-nav__icon--search svg {
   fill: var(--color-primary);

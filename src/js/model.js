@@ -3,6 +3,7 @@ import {
 	WEATHER_API_URL,
 	GEOCODING_API_KEY,
 	GEOCODING_API_URL,
+	FORWARD_GEOCODING_API_URL,
 	TOP_CITIES_API_URL,
 	UNSPLASH_API_URL,
 	CLIENT_ID
@@ -53,7 +54,25 @@ export const getPosition = function () {
 	});
 };
 
-export const loadWeatherData = async function () {
+export const getPlaceName = async function (query) {
+	try {
+		const placeNameData = await AJAX(
+			`${FORWARD_GEOCODING_API_URL}q=${query}&key=${GEOCODING_API_KEY}`
+		);
+		const { lat, lng } = placeNameData.results[0].geometry;
+		state.location.lat = lat;
+		state.location.lng = lng;
+		state.city = placeNameData.results[0].components.city;
+		if (!state.city) {
+			state.city = placeNameData.results[0].components.state_district;
+		}
+		state.country = placeNameData.results[0].components.country;
+	} catch (err) {
+		console.error(err);
+	}
+};
+
+export const loadWeatherData = async function (locationDetails = true) {
 	try {
 		const lat = state.location.lat;
 		const lng = state.location.lng;
@@ -66,12 +85,18 @@ export const loadWeatherData = async function () {
 		saveCurrentWeatherData(dataWeather);
 		saveDailyWeatherData(dataWeather.daily);
 		saveHourlyWeatherData(dataWeather.hourly);
-		const locationData = await AJAX(`${GEOCODING_API_URL}q=${lat}+${lng}&key=${GEOCODING_API_KEY}`);
-		state.city = locationData.results[0].components.city;
-		if (!state.city) {
-			state.city = locationData.results[0].components.state_district;
+
+		// Get Location details
+		if (locationDetails) {
+			const locationData = await AJAX(
+				`${GEOCODING_API_URL}q=${lat}+${lng}&key=${GEOCODING_API_KEY}`
+			);
+			state.city = locationData.results[0].components.city;
+			if (!state.city) {
+				state.city = locationData.results[0].components.state_district;
+			}
+			state.country = locationData.results[0].components.country;
 		}
-		state.country = locationData.results[0].components.country;
 	} catch (err) {
 		throw err;
 	}

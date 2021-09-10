@@ -449,6 +449,8 @@ var _weatherForecastView = _interopRequireDefault(require("./views/weatherForeca
 
 var _reportView = _interopRequireDefault(require("./views/reportView"));
 
+var _searchView = _interopRequireDefault(require("./views/searchView"));
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -512,6 +514,31 @@ const controlGetLocation = async function () {
   }
 };
 
+const controlSearchResults = async function () {
+  try {
+    _reportView.default.renderSpinner();
+
+    _weatherForecastView.default.renderSpinner();
+
+    const query = _searchView.default.getQuery();
+
+    await model.getPlaceName(query);
+    await model.loadWeatherData(false);
+
+    _reportView.default.render(model.state);
+
+    _reportView.default.updateUI(model.state.current);
+
+    _weatherForecastView.default.render(model.state);
+
+    _chartView.default.createChartData(model.state);
+
+    _chartView.default.updateChart();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const init = function () {
   start();
 
@@ -520,10 +547,12 @@ const init = function () {
   _chartView.default.addHandlerChangeUnit(controlChartTempUnit);
 
   _reportView.default.addHandlerGetLocation(controlGetLocation);
+
+  _searchView.default.addHandlerSearch(controlSearchResults);
 };
 
 init();
-},{"chart.js/auto":"66afc3fc036ac0a9124314181ca6daf9","./views/chartView":"ddb3dc54ac3a604c18c302314a865c0c","./model.js":"aabf248f40f7693ef84a0cb99f385d1f","./views/citiesView":"9bdacaa3dd400962d700caddac76d41f","./views/weatherForecastView":"6313d141f311799352124137c4d0b697","./views/reportView":"ff8d0b5abc33481142ff72d5db7c4a23"}],"66afc3fc036ac0a9124314181ca6daf9":[function(require,module,exports) {
+},{"chart.js/auto":"66afc3fc036ac0a9124314181ca6daf9","./views/chartView":"ddb3dc54ac3a604c18c302314a865c0c","./model.js":"aabf248f40f7693ef84a0cb99f385d1f","./views/citiesView":"9bdacaa3dd400962d700caddac76d41f","./views/weatherForecastView":"6313d141f311799352124137c4d0b697","./views/reportView":"ff8d0b5abc33481142ff72d5db7c4a23","./views/searchView":"c5d792f7cac03ef65de30cc0fbb2cae7"}],"66afc3fc036ac0a9124314181ca6daf9":[function(require,module,exports) {
 module.exports = require('../dist/chart');
 
 },{"../dist/chart":"61753c70c5ff96f0d66ca3d1d263fb74"}],"61753c70c5ff96f0d66ca3d1d263fb74":[function(require,module,exports) {
@@ -17916,7 +17945,7 @@ module.exports._relative = relative;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.saveCurrentWeatherData = exports.loadWeatherData = exports.getPosition = exports.state = void 0;
+exports.saveCurrentWeatherData = exports.loadWeatherData = exports.getPlaceName = exports.getPosition = exports.state = void 0;
 
 var _config = require("./config.js");
 
@@ -17973,7 +18002,30 @@ const getPosition = function () {
 
 exports.getPosition = getPosition;
 
-const loadWeatherData = async function () {
+const getPlaceName = async function (query) {
+  try {
+    const placeNameData = await (0, _helper.AJAX)(`${_config.FORWARD_GEOCODING_API_URL}q=${query}&key=${_config.GEOCODING_API_KEY}`);
+    const {
+      lat,
+      lng
+    } = placeNameData.results[0].geometry;
+    state.location.lat = lat;
+    state.location.lng = lng;
+    state.city = placeNameData.results[0].components.city;
+
+    if (!state.city) {
+      state.city = placeNameData.results[0].components.state_district;
+    }
+
+    state.country = placeNameData.results[0].components.country;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+exports.getPlaceName = getPlaceName;
+
+const loadWeatherData = async function (locationDetails = true) {
   try {
     const lat = state.location.lat;
     const lng = state.location.lng; // Get weather data
@@ -17983,15 +18035,18 @@ const loadWeatherData = async function () {
     state.tz = tz;
     saveCurrentWeatherData(dataWeather);
     saveDailyWeatherData(dataWeather.daily);
-    saveHourlyWeatherData(dataWeather.hourly);
-    const locationData = await (0, _helper.AJAX)(`${_config.GEOCODING_API_URL}q=${lat}+${lng}&key=${_config.GEOCODING_API_KEY}`);
-    state.city = locationData.results[0].components.city;
+    saveHourlyWeatherData(dataWeather.hourly); // Get Location details
 
-    if (!state.city) {
-      state.city = locationData.results[0].components.state_district;
+    if (locationDetails) {
+      const locationData = await (0, _helper.AJAX)(`${_config.GEOCODING_API_URL}q=${lat}+${lng}&key=${_config.GEOCODING_API_KEY}`);
+      state.city = locationData.results[0].components.city;
+
+      if (!state.city) {
+        state.city = locationData.results[0].components.state_district;
+      }
+
+      state.country = locationData.results[0].components.country;
     }
-
-    state.country = locationData.results[0].components.country;
   } catch (err) {
     throw err;
   }
@@ -18076,21 +18131,24 @@ const saveHourlyWeatherData = function (data) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UNSPLASH_API_URL = exports.CLIENT_ID = exports.TOP_CITIES_API_URL = exports.GEOCODING_API_URL = exports.GEOCODING_API_KEY = exports.TIMEOUT_SEC = exports.WEATHER_API_URL = exports.WEATHER_API_KEY = void 0;
+exports.UNSPLASH_API_URL = exports.CLIENT_ID = exports.TOP_CITIES_API_URL = exports.FORWARD_GEOCODING_API_URL = exports.GEOCODING_API_URL = exports.GEOCODING_API_KEY = exports.TIMEOUT_SEC = exports.WEATHER_API_URL = exports.WEATHER_API_KEY = void 0;
 // Weather Api
 const WEATHER_API_KEY = "f19d6e315954bfb123e794ab55aa28c4";
 exports.WEATHER_API_KEY = WEATHER_API_KEY;
 const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/onecall?"; //Time out sec
 
 exports.WEATHER_API_URL = WEATHER_API_URL;
-const TIMEOUT_SEC = 10; //Geo coding api
+const TIMEOUT_SEC = 10; //Reverse Geo coding api
 
 exports.TIMEOUT_SEC = TIMEOUT_SEC;
 const GEOCODING_API_KEY = "aae818fd5d614230867fe6c0f6ecebfd";
 exports.GEOCODING_API_KEY = GEOCODING_API_KEY;
-const GEOCODING_API_URL = "https://api.opencagedata.com/geocode/v1/json?"; //top cities api
+const GEOCODING_API_URL = "https://api.opencagedata.com/geocode/v1/json?"; //Forward Geo coding api
 
 exports.GEOCODING_API_URL = GEOCODING_API_URL;
+const FORWARD_GEOCODING_API_URL = "https://api.opencagedata.com/geocode/v1/json?no_annotations=1&limit=1&"; //top cities api
+
+exports.FORWARD_GEOCODING_API_URL = FORWARD_GEOCODING_API_URL;
 const TOP_CITIES_API_URL = "https://public.opendatasoft.com/api/records/1.0/search/?"; //unsplash
 
 exports.TOP_CITIES_API_URL = TOP_CITIES_API_URL;
@@ -24560,6 +24618,51 @@ var define;
 
   return Gauge;
 });
-},{}]},{},["1af3afb847b173c466651e24124cd8a8","684bda6a4d515a4b12d20f73f5ac084a","175e469a7ea7db1c8c0744d04372621f"], null)
+},{}],"c5d792f7cac03ef65de30cc0fbb2cae7":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _view = _interopRequireDefault(require("./view.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class SearchView extends _view.default {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "_parentEl", document.querySelector(".search"));
+  }
+
+  getQuery() {
+    const query = this._parentEl.querySelector(".search__field").value;
+
+    this._clearInput();
+
+    return query;
+  }
+
+  _clearInput() {
+    this._parentEl.querySelector(".search__field").value = "";
+  }
+
+  addHandlerSearch(handler) {
+    this._parentEl.addEventListener("submit", function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+}
+
+var _default = new SearchView();
+
+exports.default = _default;
+},{"./view.js":"6a3957d8744bf1d70b2b44f3726dda59"}]},{},["1af3afb847b173c466651e24124cd8a8","684bda6a4d515a4b12d20f73f5ac084a","175e469a7ea7db1c8c0744d04372621f"], null)
 
 //# sourceMappingURL=controller.3e852e71.js.map
