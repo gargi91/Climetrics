@@ -59,12 +59,14 @@ class ReportView extends View {
 	}
 
 	updateUI(data) {
+		console.log(data);
 		const humidity = data.humidity;
-		const precipation = data.precipation;
+		const precipitation = data.precipitation;
 		const windSpeed = +data.windSpeed;
 		const progressBars = document.querySelectorAll(".stats__bar");
 		progressBars[0].style.width = `${humidity}%`;
-		progressBars[1].style.width = `${precipation}%`;
+		progressBars[1].style.width = `${precipitation}%`;
+		console.log(progressBars, precipitation);
 		// Create a new Gauge
 		var cpuGauge = Gauge(document.getElementById("cpuSpeed"), {
 			max: 10,
