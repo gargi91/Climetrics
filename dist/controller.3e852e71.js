@@ -18143,6 +18143,7 @@ const weatherIcons = {
   "02d": "cloudy-sun",
   "02n": "cloudy-moon",
   "50d": "haze",
+  "50n": "haze",
   "10d": "rainy",
   "09d": "rainy-light",
   "03d": "cloud",
