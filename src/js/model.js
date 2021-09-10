@@ -67,8 +67,10 @@ export const loadWeatherData = async function () {
 		saveDailyWeatherData(dataWeather.daily);
 		saveHourlyWeatherData(dataWeather.hourly);
 		const locationData = await AJAX(`${GEOCODING_API_URL}q=${lat}+${lng}&key=${GEOCODING_API_KEY}`);
-		// console.log(locationData);
 		state.city = locationData.results[0].components.city;
+		if (!state.city) {
+			state.city = locationData.results[0].components.state_district;
+		}
 		state.country = locationData.results[0].components.country;
 	} catch (err) {
 		throw err;

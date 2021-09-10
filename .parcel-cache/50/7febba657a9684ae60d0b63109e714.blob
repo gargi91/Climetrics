@@ -17985,12 +17985,8 @@ const loadWeatherData = async function () {
     saveDailyWeatherData(dataWeather.daily);
     saveHourlyWeatherData(dataWeather.hourly);
     const locationData = await (0, _helper.AJAX)(`${_config.GEOCODING_API_URL}q=${lat}+${lng}&key=${_config.GEOCODING_API_KEY}`);
+    console.log(locationData);
     state.city = locationData.results[0].components.city;
-
-    if (!state.city) {
-      state.city = locationData.results[0].components.state_district;
-    }
-
     state.country = locationData.results[0].components.country;
   } catch (err) {
     throw err;
@@ -24181,12 +24177,14 @@ class ReportView extends _view.default {
   }
 
   updateUI(data) {
+    console.log(data);
     const humidity = data.humidity;
     const precipitation = data.precipitation;
     const windSpeed = +data.windSpeed;
     const progressBars = document.querySelectorAll(".stats__bar");
     progressBars[0].style.width = `${humidity}%`;
-    progressBars[1].style.width = `${precipitation}%`; // Create a new Gauge
+    progressBars[1].style.width = `${precipitation}%`;
+    console.log(progressBars, precipitation); // Create a new Gauge
 
     var cpuGauge = (0, _gauge.default)(document.getElementById("cpuSpeed"), {
       max: 10,

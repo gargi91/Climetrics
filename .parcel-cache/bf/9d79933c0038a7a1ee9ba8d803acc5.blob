@@ -17992,6 +17992,7 @@ const loadWeatherData = async function () {
     }
 
     state.country = locationData.results[0].components.country;
+    console.log(state);
   } catch (err) {
     throw err;
   }
@@ -24181,12 +24182,14 @@ class ReportView extends _view.default {
   }
 
   updateUI(data) {
+    console.log(data);
     const humidity = data.humidity;
     const precipitation = data.precipitation;
     const windSpeed = +data.windSpeed;
     const progressBars = document.querySelectorAll(".stats__bar");
     progressBars[0].style.width = `${humidity}%`;
-    progressBars[1].style.width = `${precipitation}%`; // Create a new Gauge
+    progressBars[1].style.width = `${precipitation}%`;
+    console.log(progressBars, precipitation); // Create a new Gauge
 
     var cpuGauge = (0, _gauge.default)(document.getElementById("cpuSpeed"), {
       max: 10,
