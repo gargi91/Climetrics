@@ -27,6 +27,21 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
+@media only screen and (min-width: 87.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 62.5em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-family: var(--font-primary);
@@ -50,6 +65,21 @@ body {
   background: var(--color-primary-light-2);
   padding: 6rem 0 6rem 8rem;
 }
+@media only screen and (min-width: 87.5em) {
+  .left {
+    padding: 4rem 0 4rem 6rem;
+  }
+}
+@media only screen and (max-width: 75em) {
+  .left {
+    padding: 2rem 0 2rem 4rem;
+  }
+}
+@media only screen and (max-width: 62.5em) {
+  .left {
+    padding: 0;
+  }
+}
 .left .navigation {
   background-color: var(--color-primary);
   height: 100%;
@@ -63,6 +93,21 @@ body {
 .right {
   background-color: var(--color-primary-light-1);
   padding: 6rem 8rem 6rem 0;
+}
+@media only screen and (min-width: 87.5em) {
+  .right {
+    padding: 4rem 6rem 4rem 0;
+  }
+}
+@media only screen and (max-width: 75em) {
+  .right {
+    padding: 2rem 4rem 2rem 0;
+  }
+}
+@media only screen and (max-width: 62.5em) {
+  .right {
+    padding: 0;
+  }
 }
 .right .main {
   height: 100%;
