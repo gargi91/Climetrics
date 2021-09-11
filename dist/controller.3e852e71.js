@@ -24307,7 +24307,7 @@ class ReportView extends _view.default {
             </div>
             <div class="stats__item stats__item--precipation">
                 <h6 class="stats__label">Precipation:</h6>
-                <h6 class="stats__value">${data.precipitation}%</h6>
+                <h6 class="stats__value">${data.precipitation * 100}%</h6>
                 <div class="stats__progress-bar">
                     <div class="stats__bar"></div>
                 </div>
@@ -24323,7 +24323,7 @@ class ReportView extends _view.default {
 
   updateUI(data) {
     const humidity = data.humidity;
-    const precipitation = data.precipitation;
+    const precipitation = data.precipitation * 100;
     const windSpeed = +data.windSpeed;
     const progressBars = document.querySelectorAll(".stats__bar");
     progressBars[0].style.width = `${humidity}%`;
