@@ -451,6 +451,10 @@ var _reportView = _interopRequireDefault(require("./views/reportView"));
 
 var _searchView = _interopRequireDefault(require("./views/searchView"));
 
+var _sidenavView = _interopRequireDefault(require("./views/sidenavView"));
+
+var _mapView = _interopRequireDefault(require("./views/mapView"));
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -474,6 +478,8 @@ const start = async function () {
     _chartView.default.createChartData(model.state);
 
     _chartView.default.chartRender();
+
+    _mapView.default.renderMap(model.state);
   } catch (err) {
     console.error(err);
   }
@@ -509,6 +515,8 @@ const controlGetLocation = async function () {
     _chartView.default.createChartData(model.state);
 
     _chartView.default.updateChart();
+
+    _mapView.default.renderMap(model.state);
   } catch (error) {
     console.error(error);
   }
@@ -534,6 +542,24 @@ const controlSearchResults = async function () {
     _chartView.default.createChartData(model.state);
 
     _chartView.default.updateChart();
+
+    _mapView.default.renderMap(model.state);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const controlSidenavMenu = async function () {
+  try {
+    console.log(_sidenavView.default.getActiveMenu());
+
+    if (_sidenavView.default.getActiveMenu() === "map") {
+      _mapView.default.showMap();
+    }
+
+    if (_sidenavView.default.getActiveMenu() === "dashboard") {
+      _mapView.default.hideMap();
+    }
   } catch (err) {
     console.error(err);
   }
@@ -549,10 +575,12 @@ const init = function () {
   _reportView.default.addHandlerGetLocation(controlGetLocation);
 
   _searchView.default.addHandlerSearch(controlSearchResults);
+
+  _sidenavView.default.addHandlerClick(controlSidenavMenu);
 };
 
 init();
-},{"chart.js/auto":"66afc3fc036ac0a9124314181ca6daf9","./views/chartView":"ddb3dc54ac3a604c18c302314a865c0c","./model.js":"aabf248f40f7693ef84a0cb99f385d1f","./views/citiesView":"9bdacaa3dd400962d700caddac76d41f","./views/weatherForecastView":"6313d141f311799352124137c4d0b697","./views/reportView":"ff8d0b5abc33481142ff72d5db7c4a23","./views/searchView":"c5d792f7cac03ef65de30cc0fbb2cae7"}],"66afc3fc036ac0a9124314181ca6daf9":[function(require,module,exports) {
+},{"chart.js/auto":"66afc3fc036ac0a9124314181ca6daf9","./views/chartView":"ddb3dc54ac3a604c18c302314a865c0c","./model.js":"aabf248f40f7693ef84a0cb99f385d1f","./views/citiesView":"9bdacaa3dd400962d700caddac76d41f","./views/weatherForecastView":"6313d141f311799352124137c4d0b697","./views/reportView":"ff8d0b5abc33481142ff72d5db7c4a23","./views/searchView":"c5d792f7cac03ef65de30cc0fbb2cae7","./views/sidenavView":"6a99379ebb973230e3a06e0ffca5a1df","./views/mapView":"9e1d07cb25d7e22cbff545c01da9197b"}],"66afc3fc036ac0a9124314181ca6daf9":[function(require,module,exports) {
 module.exports = require('../dist/chart');
 
 },{"../dist/chart":"61753c70c5ff96f0d66ca3d1d263fb74"}],"61753c70c5ff96f0d66ca3d1d263fb74":[function(require,module,exports) {
@@ -24068,28 +24096,82 @@ class CitiesView extends _view.default {
   }
 
   _generateMarkup() {
-    const markup = this._data.map(city => {
-      return `
-                <div class="city">
-                    <figcaption class="city__display">
-                        <img src="${city.url}">
-                            alt="${city.cityName}" class="city__img">
-                        <div class="city__weather">
-                            <svg class="city__weather--icon">
-                                <use
-                                    href="${_icons.default}#icon-${city.report.icon}">
-                            </svg>
-                            <div class="city__weather--time">${city.report.temp}&deg; C</div>
-                        </div>
-                    </figcaption>
-                    <div class="city__header">
-                        <h6 class="city__title">${city.cityName}</h6>
-                    </div>
-				</div>
-            `;
-    });
+    return `
+        <div class="city city--1">
+            <figcaption class="city__display">
+                <img src="/img/cities/Amsterdam.jpg" alt="Amsterdam" class="city__img" />
+                <div class="city__weather">
+                    <svg class="city__weather--icon">
+                        <use href="./img/icons.svg#icon-cloudy-sun"></use>
+                    </svg>
+                    <div class="city__weather--time">11:28</div>
+                </div>
+            </figcaption>
+            <div class="city__header">
+                <h6 class="city__title">Amsterdam</h6>
+            </div>
+        </div>
 
-    return markup.join("\n");
+        <div class="city city--2">
+            <figcaption class="city__display">
+                <img src="./img/cities/NewYork.jpg" alt="New York" class="city__img" />
+                <div class="city__weather">
+                    <svg class="city__weather--icon">
+                        <use href="./img/icons.svg#icon-sun"></use>
+                    </svg>
+                    <div class="city__weather--time">16:28</div>
+                </div>
+            </figcaption>
+            <div class="city__header">
+                <h6 class="city__title">New York</h6>
+            </div>
+        </div>
+
+        <div class="city city--3">
+            <figcaption class="city__display">
+                <img src="./img/cities/Jaipur.jpg" alt="Jaipur" class="city__img" />
+                <div class="city__weather">
+                    <svg class="city__weather--icon">
+                        <use href="./img/icons.svg#icon-moon"></use>
+                    </svg>
+                    <div class="city__weather--time">22:28</div>
+                </div>
+            </figcaption>
+            <div class="city__header">
+                <h6 class="city__title">Jaipur</h6>
+            </div>
+        </div>
+
+        <div class="city city--4">
+            <figcaption class="city__display">
+                <img src="./img/cities/London.jpg" alt="London" class="city__img" />
+                <div class="city__weather">
+                    <svg class="city__weather--icon">
+                        <use href="./img/icons.svg#icon-snowy"></use>
+                    </svg>
+                    <div class="city__weather--time">16:08</div>
+                </div>
+            </figcaption>
+            <div class="city__header">
+                <h6 class="city__title">London</h6>
+            </div>
+        </div>
+
+        <div class="city city--5">
+            <figcaption class="city__display">
+                <img src="./img/cities/Paris.jpg" alt="Paris" class="city__img" />
+                <div class="city__weather">
+                    <svg class="city__weather--icon">
+                        <use href="./img/icons.svg#icon-rainy"></use>
+                    </svg>
+                    <div class="city__weather--time">09:13</div>
+                </div>
+            </figcaption>
+            <div class="city__header">
+                <h6 class="city__title">Paris</h6>
+            </div>
+        </div>
+        `;
   }
 
   updateUI(data) {}
@@ -24663,6 +24745,160 @@ class SearchView extends _view.default {
 var _default = new SearchView();
 
 exports.default = _default;
-},{"./view.js":"6a3957d8744bf1d70b2b44f3726dda59"}]},{},["1af3afb847b173c466651e24124cd8a8","684bda6a4d515a4b12d20f73f5ac084a","175e469a7ea7db1c8c0744d04372621f"], null)
+},{"./view.js":"6a3957d8744bf1d70b2b44f3726dda59"}],"6a99379ebb973230e3a06e0ffca5a1df":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _view = _interopRequireDefault(require("./view.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class SidenavView extends _view.default {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "_parentElement", document.querySelector(".side-nav"));
+
+    _defineProperty(this, "_activeMenuElement", this._parentElement.querySelector(".side-nav__item--active"));
+  }
+
+  getActiveMenu() {
+    const activeMenu = this._activeMenuElement.dataset.menu;
+    return activeMenu;
+  }
+
+  _updateActiveMenu(element) {
+    this._activeMenuElement.classList.remove("side-nav__item--active");
+
+    element.classList.add("side-nav__item--active");
+    this._activeMenuElement = element;
+  }
+
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener("click", e => {
+      if (e.target.closest(".side-nav__item")) {
+        const targetEle = e.target.closest(".side-nav__item");
+
+        this._updateActiveMenu(targetEle);
+      }
+
+      handler();
+    });
+  }
+
+}
+
+var _default = new SidenavView();
+
+exports.default = _default;
+},{"./view.js":"6a3957d8744bf1d70b2b44f3726dda59"}],"9e1d07cb25d7e22cbff545c01da9197b":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _view = _interopRequireDefault(require("./view.js"));
+
+var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+
+var _map = /*#__PURE__*/new WeakMap();
+
+var _mapZoomLevel = /*#__PURE__*/new WeakMap();
+
+// Parcel 2
+class MapView extends _view.default {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "_parentElement", document.getElementById("map"));
+
+    _map.set(this, {
+      writable: true,
+      value: void 0
+    });
+
+    _mapZoomLevel.set(this, {
+      writable: true,
+      value: 10
+    });
+  }
+
+  _destroyMap() {
+    if (_classPrivateFieldGet(this, _map)) {
+      _classPrivateFieldGet(this, _map).remove();
+    }
+  }
+
+  renderMap(data) {
+    this._destroyMap();
+
+    const {
+      lat,
+      lng
+    } = data.location;
+    const coords = [lat, lng];
+
+    _classPrivateFieldSet(this, _map, L.map("map").setView(coords, _classPrivateFieldGet(this, _mapZoomLevel)));
+
+    L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(_classPrivateFieldGet(this, _map));
+
+    this._renderMapMarker(coords, data.city, data.country, data.current.icon);
+  }
+
+  hideMap() {
+    this._parentElement.style.opacity = 0;
+    this._parentElement.style.zIndex = -30;
+  }
+
+  showMap() {
+    this._parentElement.style.opacity = 1;
+    this._parentElement.style.zIndex = 30;
+  }
+
+  _renderMapMarker(coords, city, country, icon) {
+    const popup = `
+      <svg class="popup_icon">
+        <use href="${_icons.default}#icon-${icon}"></use>
+      </svg>
+      <div class="popup_location">${city}, ${country}</div>
+    `;
+    L.marker(coords).addTo(_classPrivateFieldGet(this, _map)).bindPopup(L.popup({
+      maxWidth: 250,
+      minWidth: 100,
+      autoClose: false,
+      closeOnClick: false
+    })).setPopupContent(popup).openPopup();
+  }
+
+}
+
+var _default = new MapView();
+
+exports.default = _default;
+},{"./view.js":"6a3957d8744bf1d70b2b44f3726dda59","url:../../img/icons.svg":"b03a103b798a8aab4c0c56ff31cee7f9"}]},{},["1af3afb847b173c466651e24124cd8a8","684bda6a4d515a4b12d20f73f5ac084a","175e469a7ea7db1c8c0744d04372621f"], null)
 
 //# sourceMappingURL=controller.3e852e71.js.map

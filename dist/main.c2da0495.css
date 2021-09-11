@@ -72,6 +72,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.right .main__content {
+  position: relative;
+}
 
 ul {
   list-style: none;
@@ -645,6 +648,42 @@ h6 {
   transform: translate(-50%, 0);
   transition: all 0.1s ease;
   color: var(--color-primary);
+}
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-white);
+  z-index: -30;
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-white);
+  color: var(--color-grey-darkest);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-white);
+}
+
+.leaflet-popup svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+.leaflet-popup-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=main.c2da0495.css.map */

@@ -17,6 +17,18 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		/>
 		<link rel="stylesheet" href="sass/main.scss" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+			integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			crossorigin=""
+		/>
+		<script
+			defer
+			src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin=""
+		></script>
 		<script defer src="js/controller.js"></script>
 		<title>Climetrics | Get weather report at your ease</title>
 	</head>
@@ -145,6 +157,8 @@
 					</nav>
 
 					<div class="main__content">
+						<!-- Placeholder for map -->
+						<div id="map"></div>
 						<!-- Heading - 1 -->
 						<h1 class="heading--1">Weather Forecast</h1>
 
